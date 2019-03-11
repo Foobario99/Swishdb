@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map For TrueRandom
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SwishDB	KEYWORD1
+SwishData	KEYWORD1
+SwishIndex	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+init	KEYWORD2
+suggestStorageLimitForMetricRate	KEYWORD2
+suggestStorageLimitTimePeriodForMetricRate	KEYWORD2
+store	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
