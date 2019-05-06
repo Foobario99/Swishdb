@@ -20,7 +20,7 @@ Incredibly micro time series database for ESP8226 / Arduino. Inspired by Whisper
 |                |        | Metadata           | version, time_stamp_base, typeCount |
 |                |        | TypeInfo           | typeId, count                       |
 |                |        | version            | 2 bytes                             |
-|                |        | time_stamp_base    | 8 bytes                             |
+|                |        | time_stamp_base    | 4 bytes                             |
 |                |        | typeCount          | 1 byte                              |
 |                |        | typeId             | 1 byte                              |
 |                |        | count              | 4 bytes                             |
