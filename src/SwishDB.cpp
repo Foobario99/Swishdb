@@ -259,7 +259,6 @@ ICACHE_FLASH_ATTR void SwishDBClass::readIndexFile(time_t timebase) {
     indexFile.close();
 }
 
-
 ICACHE_FLASH_ATTR void SwishDBClass::createNewFileForTimebase(time_t timeBase) {
     bzero(&_currentIndex, sizeof(SwishIndex));
     _currentIndex.time_base = timeBase;
@@ -287,15 +286,13 @@ ICACHE_FLASH_ATTR void SwishDBClass::flushData(SwishData* item, File dataFile) {
         _currentIndex.typeCount++;
     }
     _currentIndex.typeInfoList[item->typeIndex]++;
-    //We store our timestamps as deltas from timebase
-    uint32_t timeDelta = lwip_htonl(item->time - _currentIndex.time_base);
     if(item->time < _currentIndex.time_base ) {
-        Log.warning(F("SwishData has time < time_base. Setting to time_base..." CR));
-        timeDelta = 0;
+        Log.warning(F("SwishData has time < time_base." CR));
     }
-    uint32_t itemValue = lwip_htonl(item->value);
-    dataFile.write((uint8_t*)&timeDelta, sizeof(uint32_t));
+    uint32_t itemTime = lwip_htonl(item->time);
+    dataFile.write((uint8_t*)&itemTime, sizeof(uint32_t));
     dataFile.write(&item->typeIndex, sizeof(uint8_t));
+    uint32_t itemValue = lwip_htonl(item->value);
     dataFile.write((uint8_t*)&itemValue, sizeof(uint32_t));
 }
 
